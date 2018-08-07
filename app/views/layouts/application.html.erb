@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <% if current_user %>
+      Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+
+  <% flash.each do |key, value| %>
+    <div class="container-fluid alert alert-info -<%= key %>">
+      <div class="container">
+        <%= value %>
+      </div>
+    </div>
+  <% end %>
+
+
+
     <%= yield %>
   </body>
 </html>
