@@ -1,0 +1,65 @@
+
+<div class="container-fluid mb-5">
+	<div class="container" style="margin-top: 2%;">
+		<div class="row" >
+			<div class="col-sm-6" style="margin: auto; background-color : #FFFFFF99; padding: 4%" >
+
+				<h3><strong>New match</strong></h3>
+				
+				<%= form_with scope: :match, url: matches_path, local: true do |form| %>
+
+					<div class="mt-3">
+					   <h5> <%= form.label :category %>:</h5>
+
+					   <%= form.radio_button :category, "football", style: "margin-left: 0.7vw;" %>
+					   Football
+					   <%= form.radio_button :category, "vollyball", style: "margin-left: 0.7vw;" %>
+					   Vollyball
+					   <%= form.radio_button :category, "tennis", style: "margin-left: 0.7vw;" %>
+					   Tennis
+					   <%= form.radio_button :category, "basketball", style: "margin-left: 0.7vw;" %>
+					   Basketball
+					   <%= form.radio_button :category, "badminton", style: "margin-left: 0.7vw;" %>
+					   Badminton
+					   <%= form.radio_button :category, "squash", style: "margin-left: 0.7vw;" %>
+					   Squash
+					</div>
+
+					<div class="mt-3">
+						<h5><%= form.label :position_needed %>:</h5>
+						<%= form.text_field :position ,:required => true, placeholder: "write 'player' if position not important" %>
+					</div>
+
+					<div class="mt-3">
+						<h5><%= form.label :date %>:</h5>
+						<%= form.text_field :date, :required => true %>
+					</div>
+
+					<div class="mt-3">
+						<h5><%= form.label :start_time %>:</h5>
+						<%= form.text_field :start_time, type: "time",id: "appt-time",min:"05:00", max: "23:00", :required => true %>
+						<span class="hours">latest booking hour is 2300</span>
+					</div>
+
+					<div class="mt-3">
+						<h5><%= form.label :field %>:</h5>
+						<%= form.text_field :field, :required => true %>
+					</div>
+
+					<div class="mt-3">
+						<h5><%= form.label :num_of_players %>:</h5>
+						<%= form.text_field :num_of_player, :required => true %>
+					</div>
+
+
+					<div class="pt-2 mt-4">
+						<%= form.submit :class => "btn btn-info"%>
+					</div>
+				<% end %>	
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
