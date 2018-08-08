@@ -26,10 +26,20 @@ class UsersController < ApplicationController
 		  end
 	end
 
+	def show
+		@user = User.find(params[:id])
+		@match = Match.where(user_id: current_user.id )
+		@booking = Booking.where(user_id: @user)
+	end
+
 	private
-		def user_params
-		  params.require(:user).permit(:email, :password)
-		end
+	def user_params
+	  params.require(:user).permit(:email, :password)
+	end
+
+
 
 end
+
+
 
