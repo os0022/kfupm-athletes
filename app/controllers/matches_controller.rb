@@ -1,7 +1,14 @@
 class MatchesController < ApplicationController
 
 	def index
-		@match = Match.where(num_of_player: (1..(1/0.0)))
+		@matches = Match.where(num_of_player: (1..(1/0.0)))
+		@match = @matches.page(params[:page]).per(1)
+
+		respond_to do |format|
+      format.html
+      format.js { render :layout => false }
+    end
+
 	end
 
 	def create

@@ -1,0 +1,18 @@
+<div class="container-fluid my-3">
+	<div style="padding-left: 2%; padding-right: 3%">
+
+		<h2 style="margin-top: 2%; margin-bottom: 2%">
+			All Matches
+			<% if current_user != nil %>
+				<%= link_to 'Create new match', new_match_path, :class => "btn btn-info ml-2" %>
+			<% end %>
+		</h2>
+
+		<div id="match" class="row">
+			<%= render "match" %>
+		</div>
+		<div id="paginator">
+			<%= paginate @match, :remote => true %>
+		</div>
+	</div>
+</div>

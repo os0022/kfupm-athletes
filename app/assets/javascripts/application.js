@@ -12,5 +12,29 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+
+$(function() {
+
+  $('#category').on('keypress', function(e){
+    $.ajax({
+      url: 'search',
+      method: 'GET',
+      data: $(this).serialize(),
+      dataType: 'json',
+      success: function(data){
+        let checkCategory = document.getElementById("checkCategory");
+
+        checkCategory.innerHTML = "";
+
+        data.forEach(function(match){
+          const option = document.createElement("option");
+
+          option.value = match.category;
+          checkCategory.append(option);
+        })
+      }
+    })
+  });
+});

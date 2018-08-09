@@ -1,0 +1,2 @@
+$('#match').html('<%= escape_javascript(raw(render 'match')) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@match, remote: true)) %>');
