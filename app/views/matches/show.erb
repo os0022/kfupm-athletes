@@ -43,7 +43,9 @@
 							<% if !(Booking.find_by(user_id: current_user.id,match_id: @match.id)) %>
 								<%= form_with scope: :booking, url: match_bookings_path(@match), local: true do |form| %>
 									<div class="pt-2 mt-4">
-										<%= form.submit :class => "btn btn-info text-center" %>
+										<% if @match.num_of_player != 0 %>
+											<%= form.submit :class => "btn btn-info text-center" %>
+										<% end -%>
 									</div>
 								<% end %>
 							<% else %>

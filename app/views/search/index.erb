@@ -1,0 +1,25 @@
+<div class="container-fluid my-3">
+	<div class="row">
+		<% @match.each do |match| %>
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" >
+					<div class="card" style="background-color : #FFFFFF99;">
+						<div class="card-body">
+							<p><strong>Category: </strong><%= match.category %></p>
+							<p class="text-capitalize"><strong>position: </strong><%= match.position %></p>
+							<p><strong>Date: </strong><%= match.date %></p>
+							<p><strong>Time: </strong><%= match.start_time %>
+							<p>
+							<% if current_user != nil %>
+								<% if match.user_id == current_user.id %>
+									<%= link_to 'More details', match_path(match), :class => "btn btn-info mb-1" %>
+						 		<% else %>
+									<%= link_to 'More details', match_path(match), :class => "btn btn-secondary mb-1" %>
+								<% end %>
+							<% end %>
+							</p>
+						</div>
+					</div>
+				</div>
+		<% end %>
+	</div>
+</div>

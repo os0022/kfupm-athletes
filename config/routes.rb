@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :new, :show]
   end
 
+  get "search" => "search#index"
+
 
 
 end
