@@ -1,1 +1,33 @@
-hello
+<div class="text-center" style="margin: auto;">
+	<h2>Welcome to the biggest sport portal at KFUPM</h2>
+	<h4>Find an uncompleted match and join it  </h4>
+	<h6><b>for now on the weather is your only excusse for not playing sports</b></h6>
+	<p class="mt-3">check the weather before you join any match ;)</p>
+		<input  id="city" value="dhahran">
+		<button id="getWeatherForcast"> Get Weather</button>
+		<div id="showtWeatherForcast"></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#getWeatherForcast").click(function(){
+			var city = $("#city").val();
+			var key = '88409c5d89e71a7e16bbbd677d36cc8d';
+
+			$.ajax({
+				url : 'http://api.openweathermap.org/data/2.5/weather',
+				dataType: 'json',
+				type: 'GET',
+				data: {q: city, appid: key, units: 'metric'},
+
+
+				success: function(data){
+					var wf = '';
+					$.each(data.weather, function(index, val){
+						wf += '<p> <b>' + data.name + "</b></p>" + data.main.temp + '&deg;C' + ' | ' + val.main + ', ' + val.description
+					});
+					$('#showtWeatherForcast').html(wf);
+				}
+			});
+		});
+	});
+</script>
