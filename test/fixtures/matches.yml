@@ -4,8 +4,20 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one:
+  category: Post Title One
+  position: Post body one
+  field: Post field one
+  start_time: Post time one
+  date: 11/08/2018
+  num_of_player: 4
 # column: value
 #
-two: {}
+two: 
+  category: Post Title Two
+  position: Post body two
+  field: Post field two
+  start_time: Post time two
+  date: 12/08/2018
+  num_of_player: 2
 # column: value
