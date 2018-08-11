@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Match, :type => :model do
 	subject { described_class.new(category: "Anything", position: "Anything", field: "Anything", start_time: "21:00",
-																date: DateTime.now, num_of_player: 4 ) }
+					date: DateTime.now, num_of_player: 4 ) }
 
   it "is valid with valid attributes" do
   	expect(subject).to be_valid
