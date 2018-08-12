@@ -11,9 +11,9 @@
 							<p>
 							<% if current_user != nil %>
 								<% if match.user_id == current_user.id %>
-									<%= link_to 'More details', match_path(match), :class => "btn btn-info mb-1" %>
-						 		<% else %>
 									<%= link_to 'More details', match_path(match), :class => "btn btn-secondary mb-1" %>
+						 		<% else %>
+									<%= link_to 'More details', match_path(match), :class => "btn btn-success mb-1" %>
 								<% end %>
 							<% end %>
 							</p>

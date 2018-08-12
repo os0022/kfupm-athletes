@@ -4,7 +4,7 @@
 		<h2 style="margin-top: 2%; margin-bottom: 2%">
 			<%= @user.email %> 
 			<% if current_user != nil %>
-				<%= link_to 'Create new match', new_match_path, :class => "btn btn-info ml-2" %>
+				<%= link_to 'Create new match', new_match_path, :class => "btn btn-secondary ml-2" %>
 			<% end %>
 		</h2>
 		<h4>Matches created by <%= @user.email %> :</h4>
@@ -20,9 +20,9 @@
 								<p>
 								<% if current_user != nil %>
 									<% if match.user_id == current_user.id %>
-										<%= link_to 'More details', match_path(match), :class => "btn btn-info mb-1" %>
-							 		<% else %>
 										<%= link_to 'More details', match_path(match), :class => "btn btn-secondary mb-1" %>
+							 		<% else %>
+										<%= link_to 'More details', match_path(match), :class => "btn btn-success mb-1" %>
 									<% end %>
 								<% end %>
 								</p>
@@ -45,9 +45,9 @@
 								<p>
 								<% if current_user != nil %>
 									<% if booking.match.user_id == current_user.id %>
-										<%= link_to 'More details', match_path(booking.match), :class => "btn btn-info mb-1" %>
-							 		<% else %>
 										<%= link_to 'More details', match_path(booking.match), :class => "btn btn-secondary mb-1" %>
+							 		<% else %>
+										<%= link_to 'More details', match_path(booking.match), :class => "btn btn-success mb-1" %>
 									<% end %>
 								<% end %>
 								</p>
