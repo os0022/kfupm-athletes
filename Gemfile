@@ -41,6 +41,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bcrypt', '~> 3.1.7', platforms: :ruby
 
+gem "pg"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -72,8 +74,8 @@ group :test do
 
 end
 
-group :production do
-  gem "pg"
-end
+
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
