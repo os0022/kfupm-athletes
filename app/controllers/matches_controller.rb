@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
 
 	def index
 		@matches = Match.where(num_of_player: (1..(1/0.0)))
-		@match = @matches.page(params[:page]).per(9)
+		@match = @matches.page(params[:page]).per(8)
 
 		respond_to do |format|
       format.html
