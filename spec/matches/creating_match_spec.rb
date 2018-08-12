@@ -2,9 +2,9 @@ require 'rails_helper.rb'
  
 feature 'Add Employee', type: :feature do 
   background do
-    user = User.create(email: "oaaos@hotmail.com", password: "111")
+    user = User.create(email: "test@test.com", password: "111")
     visit login_path
-    fill_in 'email', with: 'oaaos@hotmail.com'
+    fill_in 'email', with: 'test@test.com'
     fill_in 'password', with: '111'
     click_button 'Submit'
 

@@ -48,6 +48,19 @@ class MatchesController < ApplicationController
 		end
 	end
 
+	def destroy
+	  @match = Match.find(params[:id])
+	  if current_user == nil || (current_user.role == "student" && @match.user_id != current_user.id)
+  	 	flash[:notice] = "you can't delete this match"
+  	 	redirect_back fallback_location: @match
+
+  	 else
+	  @match.destroy
+	 
+	  redirect_to matches_path
+	 end
+  end
+
 
 
 	private
