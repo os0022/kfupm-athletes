@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2018_08_08_083109) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "match_id"
+    t.bigint "user_id"
+    t.bigint "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["match_id"], name: "index_bookings_on_match_id"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_083109) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "category"
     t.string "position"
     t.string "field"
@@ -42,4 +45,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_083109) do
     t.string "role", default: "student"
   end
 
+  add_foreign_key "bookings", "matches"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "matches", "users"
 end
