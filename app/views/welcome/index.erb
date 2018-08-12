@@ -6,7 +6,9 @@
 		<input  id="city" value="dhahran">
 		<button id="getWeatherForcast"> Get Weather</button>
 		<div id="showtWeatherForcast"></div>
-		<%= link_to 'Create new match', new_match_path %>
+		<% if current_user != nil %>
+			<%= link_to 'Create new match', new_match_path %>
+		<% end %>
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
