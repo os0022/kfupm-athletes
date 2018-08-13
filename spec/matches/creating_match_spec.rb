@@ -1,11 +1,11 @@
 require 'rails_helper.rb'
  
-feature 'Add Employee', type: :feature do 
+feature 'Add User', type: :feature do 
   background do
     user = User.create(email: "test@test.com", password: "111")
     visit login_path
     fill_in 'email', with: 'test@test.com'
-    fill_in 'password', with: '111'
+    fill_in 'password', with: 'test'
     click_button 'Submit'
 
     expect(page).to have_content('Welcome')
