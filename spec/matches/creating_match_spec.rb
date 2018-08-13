@@ -2,7 +2,7 @@ require 'rails_helper.rb'
  
 feature 'Add User', type: :feature do 
   background do
-    user = User.create(email: "test@test.com", password: "111")
+    user = User.create(email: "test@test.com", password: "test")
     visit login_path
     fill_in 'email', with: 'test@test.com'
     fill_in 'password', with: 'test'
