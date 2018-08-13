@@ -14,18 +14,6 @@ class UsersController < ApplicationController
 	  end
 	end
 
-	def login
-	  @user = User.find_by_email(params[:email])
-		  if @user.password == params[:password]
-				session[:user_id] = user.id
-			  flash[:success] = 'Successfully Logged In!'
-			  redirect_to '/'
-		  else
-	  		flash[:warning] = "Invalid Username or Password"
-	  		redirect_to '/login'
-		  end
-	end
-
 	def show
 		@user = User.find(params[:id])
 		@match = Match.where(user_id: current_user.id )
