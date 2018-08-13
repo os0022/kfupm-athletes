@@ -30,7 +30,7 @@
 						<h5>Number of Players needed: <%= @match.num_of_player %></h5>
 					</div>
 
-					<%= link_to 'All Matches', matches_path, :class => "btn btn-info" %>
+					<%= link_to 'All Matches', matches_path, :class => "btn btn-success" %>
 
 					<% if current_user != nil %>
 						<% if @match.user_id == current_user.id || current_user.role == "admin"  %>
@@ -44,7 +44,9 @@
 								<%= form_with scope: :booking, url: match_bookings_path(@match), local: true do |form| %>
 									<div class="pt-2 mt-4">
 										<% if @match.num_of_player != 0 %>
-											<%= form.submit 'Join the match', :class => "btn btn-info text-center" %>
+											<% if current_user.role != "admin" %>
+												<%= form.submit 'Join the match', :class => "btn btn-success text-center" %>
+											<% end %>
 										<% end -%>
 									</div>
 								<% end %>
