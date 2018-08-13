@@ -4,7 +4,9 @@
 		<h2 style="margin-top: 2%; margin-bottom: 2%">
 			All Matches
 			<% if current_user != nil %>
-				<%= link_to 'Create new match', new_match_path, :class => "btn btn-secondary"  %>
+				<% if current_user.role != "admin" %>
+					<%= link_to 'Create new match', new_match_path, :class => "btn btn-secondary"  %>
+				<% end %>
 			<% end %>
 		</h2>
 

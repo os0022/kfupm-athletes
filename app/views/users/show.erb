@@ -4,7 +4,9 @@
 		<h2 style="margin-top: 2%; margin-bottom: 2%">
 			<%= @user.email %> 
 			<% if current_user != nil %>
-				<%= link_to 'Create new match', new_match_path, :class => "btn btn-secondary ml-2" %>
+				<% if current_user.role != "admin" %>
+					<%= link_to 'Create new match', new_match_path, :class => "btn btn-secondary ml-2" %>
+				<% end %>
 			<% end %>
 		</h2>
 		<h4>Matches created by <%= @user.email %> :</h4>

@@ -14,7 +14,11 @@ class MatchesController < ApplicationController
 	def create
 		@match = Match.new(match_params)
 		@match.user_id = current_user.id
-		if @match.save
+		if current_user.role == "admin"
+			flash[:danger] = "Admin can't create a match."
+			redirect_to matches_path
+			
+		elsif @match.save
 			redirect_to @match
 		else
 			flash[:danger] = "Some thing went wrong, you are not allowed to create a match."

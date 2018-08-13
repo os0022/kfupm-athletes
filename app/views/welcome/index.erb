@@ -7,7 +7,9 @@
 		<button id="getWeatherForcast"> Get Weather</button>
 		<div id="showtWeatherForcast"></div>
 		<% if current_user != nil %>
-			<%= link_to 'Create new match', new_match_path %>
+			<% if current_user.role != "admin" %>
+				<%= link_to 'Create new match', new_match_path %>
+			<% end %>
 		<% end %>
 </div>
 <script type="text/javascript">
